@@ -16,5 +16,10 @@
 
 ## 1.2. 程式碼實作
 
+### 演算法複雜度
+
+- Time complexity:
+- Space complexity:
+
 ## 1.3. 解法優化
 ```
