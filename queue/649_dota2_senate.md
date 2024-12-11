@@ -83,3 +83,43 @@ class Solution {
 - **Space complexity:** O(n)
 
 ## 1.3. 解法優化
+
+- 通過比較索引大小（$r 和 $d），確保操作順序符合隊列順序，且不需要額外標記「被禁」的參議員。
+
+```php
+class Solution {
+
+    /**
+     * @param String $senate
+     * @return String
+     */
+    function predictPartyVictory($senate) {
+        $rQueue = new SplQueue();
+        $dQueue = new SplQueue();
+        $n = strlen($senate);
+
+        for ($i = 0; $i < $n; $i ++) {
+            if ($senate[$i] === 'R') {
+                $rQueue->enqueue($i);
+            } else {
+                $dQueue->enqueue($i);
+            }
+        }
+
+        while ($rQueue->count() && $dQueue->count()) {
+            $r = $rQueue->dequeue();
+            $d = $dQueue->dequeue();
+            if ($r < $d) {
+                $rQueue->enqueue($n++);
+            } else {
+                $dQueue->enqueue($n++);
+            }
+        }
+
+        return ($rQueue->count()) ? "Radiant" : "Dire";
+    }
+}
+```
+
+- **Time complexity:** O(n)
+- **Space complexity:** O(n)
