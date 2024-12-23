@@ -82,7 +82,8 @@ class Solution {
 }
 ```
 
-- **Time complexity:**
-- **Space complexity:**
+- **Time complexity:** O(n)
+- **Space complexity:** O(w)
+  - w 為二元樹最大寬度
 
 ## 1.3. 解法優化
